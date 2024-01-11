@@ -13,5 +13,18 @@ int	main(void)
 	{
 		std::cout << numbers[i] << std::endl;
 	}
+	std::cout << numbers.get_size() << std::endl;
+
+	Array<char>	str(700);
+	srand(time(NULL));
+	for (int i = 0; i < 700; i++)
+	{
+		str[i] = 'a';
+	}
+	for (int i = 0; i < 700; i++)
+	{
+		std::cout << str[i] << std::endl;
+	}
+	std::cout << numbers.get_size() << std::endl;
 	return (0);
 }
