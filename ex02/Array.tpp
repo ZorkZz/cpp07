@@ -8,20 +8,21 @@ Array<T>::~Array()
 }
 
 template <typename T>
-Array<T>::Array(): Array(NULL), _size(0)
-{}
+Array<T>::Array(): _array(NULL), _size(0)
+{
+}
 
 template <typename T>
-Array<T>::Array(unsigned int n): Array(new T[n]), _size(n)
+Array<T>::Array(unsigned int n): _array(new T[n]), _size(n)
 {
 	for (unsigned int i = 0; i < n; i++)
 	{
-		T[i] = 0;
+		_array[i] = 0;
 	}
 }
 
 template <typename T>
-Array<T>	&Array<T>::operator[](unsigned int i)
+T	&Array<T>::operator[](unsigned int i)
 {
 	if (i >= _size)
 		throw (OutOfRange());
@@ -34,10 +35,10 @@ Array<T>	&Array<T>::operator=(Array const &array)
 	unsigned int	new_size = array.get_size();
 	if (this->_array != NULL)
 		delete[] this->_array;
-	this->_array = new T[new_size]
+	this->_array = new T[new_size];
 	for (size_t i = 0; i < new_size; i++)
 	{
-		this->_array[i] = array[i];
+		this->_array[i] = array._array[i];
 	}
 	return (&this);
 }

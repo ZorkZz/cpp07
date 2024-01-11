@@ -1,13 +1,10 @@
 NAME = array
 
-SRC = main.cpp Array.tpp
-TEMPLATE_SRC = Array.tpp
+SRC = main.cpp
 
 HEADER = Array.hpp
 
 OBJ = $(SRC:%.cpp=%.zizi)
-
-TEMPLATE_OBJ = $(TEMPLATE_SRC:%.tpp=%.zizi)
 
 RM = rm -rf
 
@@ -18,11 +15,6 @@ DEPENDS = $(OBJ:.zizi=.d)
 CC = c++
 
 all: $(NAME)
-
-%.zizi: %.tpp $(HEADER) Makefile
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf	"\033[1;33m \r\033[2KCreating -c $< -o $\n \033[0m"
-
 
 %.zizi: %.cpp $(HEADER) Makefile
 	@$(CC) $(CFLAGS) -c $< -o $@

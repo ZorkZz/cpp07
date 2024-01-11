@@ -2,9 +2,12 @@
 #define ARRAY_HPP
 
 #include <iostream>
-#include "Array.tpp"
+#include <string>
+#include <exception>
+#include <stdexcept>
+#include <cstdlib>
 
-template<typename T>
+template <typename T>
 class Array
 {
 	public:
@@ -12,7 +15,7 @@ class Array
 		~Array();
 		Array(unsigned int n);
 		Array	&operator=(Array const &array);
-		Array	&operator[](unsigned int i);
+		T	&operator[](unsigned int i);
 		unsigned int	get_size() const;
 		class OutOfRange : public std::exception
 		{
@@ -26,5 +29,6 @@ class Array
 };
 
 
+#include "Array.tpp"
 
 #endif
