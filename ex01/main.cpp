@@ -7,18 +7,20 @@ void	fill_tab(char &i)
 
 int	main(void)
 {
-	char	v[5] = {85, 39, 84, 45, 110};
+	{
+		char	v[5] = {85, 39, 84, 45, 110};
 
-	for (size_t i = 0; i < 5; i++)
-	{
-		std::cout << v[i];
-	}
-	std::cout << std::endl;
-	::iter(v, 5, fill_tab);
-	for (size_t i = 0; i < 5; i++)
-	{
-		std::cout << v[i];
-	}
-	std::cout << std::endl;
+		for (size_t i = 0; i < 5; i++)
+		{
+			std::cout << v[i];
+		}
+		std::cout << std::endl;
+		::iter(v, 5, fill_tab);
+		for (size_t i = 0; i < 5; i++)
+		{
+			std::cout << v[i];
+		}
+		std::cout << std::endl;
 	return (0);
+	}
 }

@@ -13,4 +13,13 @@ void	iter(T a[], size_t b, void func(T &))
 	}
 }
 
+template <typename T>
+void	iter(const T a[], size_t b, void func(const T &))
+{
+	for(size_t i = 0; i < b; i++)
+	{
+		func(a[i]);
+	}
+}
+
 #endif
