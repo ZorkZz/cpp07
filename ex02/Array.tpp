@@ -22,6 +22,13 @@ Array<T>::Array(unsigned int n): _array(new T[n]), _size(n)
 }
 
 template <typename T>
+Array<T>::Array(const Array<T> &array): _array(new T[array.get_size()]), _size(array.get_size())
+{
+	for (unsigned int i = 0; i < array._size; i++)
+		this->_array[i] = array._array[i];
+}
+
+template <typename T>
 T	&Array<T>::operator[](unsigned int i)
 {
 	if (i >= _size)
@@ -32,15 +39,18 @@ T	&Array<T>::operator[](unsigned int i)
 template <typename T>
 Array<T>	&Array<T>::operator=(Array const &array)
 {
-	unsigned int	new_size = array.get_size();
-	if (this->_array != NULL)
-		delete[] this->_array;
-	this->_array = new T[new_size];
-	for (size_t i = 0; i < new_size; i++)
+	if (this != &array)
 	{
-		this->_array[i] = array._array[i];
+		unsigned int	new_size = array.get_size();
+		if (this->_array != NULL)
+			delete[] this->_array;
+		this->_array = new T[new_size];
+		for (size_t i = 0; i < new_size; i++)
+		{
+			this->_array[i] = array._array[i];
+		}
 	}
-	return (&this);
+	return (*this);
 }
 
 template <typename T>
@@ -50,4 +60,4 @@ unsigned int	Array<T>::get_size() const
 }
 
 template <typename T>
-char const*	Array<T>::OutOfRange::what() const throw() {return ("Array::Exeption : index out of range");}
+char const*	Array<T>::OutOfRange::what() const throw() {return ("Array::Exeption: index out of range");}

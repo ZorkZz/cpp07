@@ -14,6 +14,7 @@ class Array
 		Array();
 		~Array();
 		Array(unsigned int n);
+		Array(const Array<T> &array);
 		Array	&operator=(Array const &array);
 		T	&operator[](unsigned int i);
 		unsigned int	get_size() const;
