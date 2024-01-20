@@ -1,26 +1,18 @@
 #include "iter.hpp"
 
-void	fill_tab(char &i)
+void	print(std::string const	&str)
 {
-	i = 65;
+	std::cout << str << std::endl;
 }
-
 int	main(void)
 {
 	{
-		char	v[5] = {85, 39, 84, 45, 110};
+		std::string	v[5] = {"85", "39", "84", "45", "110"};
 
 		for (size_t i = 0; i < 5; i++)
 		{
-			std::cout << v[i];
+			std::cout << v[i] << std::endl;
 		}
-		std::cout << std::endl;
-		::iter(v, 5, fill_tab);
-		for (size_t i = 0; i < 5; i++)
-		{
-			std::cout << v[i];
-		}
-		std::cout << std::endl;
 	return (0);
 	}
 }
